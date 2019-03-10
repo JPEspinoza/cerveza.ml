@@ -1,19 +1,39 @@
-var input = document.querySelector('#calorias');
-var output = document.querySelector('#cervezas');
-var calorias = 150;
+var caloriesInput = document.querySelector('#calorias');
+var beersInput = document.querySelector('#cervezas');
+var caloriesPerBeer = 150;
 
-function update()
+var last = "calories";
+
+function toFixed(num, fixed) {
+    var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
+    return num.toString().match(re)[0];
+}
+
+function updateBeers()
 {
-    var cervezas = Number(input.value) / calorias;
+    var beers = Number(caloriesInput.value) / caloriesPerBeer;
 
-    cervezas = Math.trunc(cervezas);
+    beersInput.value = toFixed(beers, 2);
+}
 
-    output.value = cervezas;
+function updateCalories()
+{
+    var calories = Number(beersInput.value) * caloriesPerBeer;
+
+    caloriesInput.value = calories;
 }
 
 function size(size)
 {
-    calorias = size;
+    caloriesPerBeer = size;
+    if(last == "calories")
+    {
+        updateBeers();
+    }
+    else if(last == "beers")
+    {
+        updateCalories();
+    }
 
     id = event.srcElement.id;
 
@@ -26,12 +46,15 @@ function size(size)
 
     /* new active button */
     document.getElementById(id).className = "active";
-    update();
 }
 
-input.addEventListener('input', function()
+caloriesInput.addEventListener('input', function()
 {
-    update();
+    updateBeers();
+    last = "calories";
 });
 
-update();
+beersInput.addEventListener('input', function(){
+    updateCalories();
+    last = "beers";
+});
