@@ -80,3 +80,7 @@ button.active {
     color: black;
 }
 
+/* disclaimers */
+#disclaimers p{
+    color: rgba(14,16,14,0.5);
+}

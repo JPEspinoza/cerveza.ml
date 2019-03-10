@@ -1,18 +1,15 @@
 var input = document.querySelector('#calorias');
 var output = document.querySelector('#cervezas');
-var calorias = 500;
+var calorias = 150;
 
 function update()
 {
-    var cervezas = input.value / calorias;
+    var cervezas = Number(input.value) / calorias;
+
+    cervezas = Math.trunc(cervezas);
 
     output.value = cervezas;
 }
-
-input.addEventListener('input', function()
-{
-    update();
-});
 
 function size(size)
 {
@@ -31,3 +28,10 @@ function size(size)
     document.getElementById(id).className = "active";
     update();
 }
+
+input.addEventListener('input', function()
+{
+    update();
+});
+
+update();
