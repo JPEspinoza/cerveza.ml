@@ -1,0 +1,46 @@
+<!doctype HTML>
+<html lang="es">
+    <head>
+        <title>
+            Homebrew
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="topbar">
+            <div id="left">
+                <img src="icon.png" alt="Icon">
+            </div>
+            <div id="right">
+                <h2>
+                    Homebrew
+                </h2>
+                <p>
+                ¿Cuantas cervezas te puedes tomar?
+                </p>
+            </div>
+        </div>
+        <div id="main">
+            <div id="top">
+                <button id="b1" onclick="size(500)" class="active"> 500ml </button>
+                <button id="b2" onclick="size(750)"> 750ml </button>
+                <button id="b3" onclick="size(1000)"> 1000ml </button>
+            </div>
+            <div id="middle">
+                <p>
+                Calorias:
+                </p>
+                <input id="calorias" type="number">
+            </div>
+            <div id="bottom">
+                <p>
+                Cervezas:
+                </p>
+                <input id="cervezas" type="number" disabled="disabled">
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
