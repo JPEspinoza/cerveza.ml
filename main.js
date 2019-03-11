@@ -58,3 +58,6 @@ beersInput.addEventListener('input', function(){
     updateCalories();
     last = "beers";
 });
+
+updateBeers();
+updateCalories();
